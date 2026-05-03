@@ -83,3 +83,4 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 ## License
 
 This project is licensed under the [GNU General Public License v3.0](LICENSE).
+trigger
