@@ -1,4 +1,4 @@
-name: Build APK
+name: Build All APK
 on: [push, workflow_dispatch]
 jobs:
   build:
@@ -11,10 +11,11 @@ jobs:
           java-version: '17'
       - uses: gradle/actions/setup-gradle@v3
       - run: chmod +x gradlew
-      - run: ./gradlew assembleDebug
+      - name: Build All Debug APK
+        run: ./gradlew assembleUniversalDebug assembleArm64Debug assembleArmeabiDebug assembleX86Debug
       - name: Find APK
         run: find . -name "*.apk"
       - uses: actions/upload-artifact@v4
         with:
-          name: KR-JBL-PLAYER-APK
+          name: KR-JBL-PLAYER-ALL-APK
           path: "**/*.apk"
